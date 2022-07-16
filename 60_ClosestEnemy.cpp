@@ -76,3 +76,42 @@ int main()
 	return 0;
 
 }
+
+
+//java solution
+
+public class Main
+{
+    static int enimyDistance(int[] arr){
+        int onep = 0; //one position
+        int twop = 0; //two posotion
+        int minDis = Integer.MAX_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==0){
+                continue;
+            }
+            else if(arr[i]==1){
+                onep = i+1;
+            }
+            else if(arr[i]==2){
+                twop = i+1;
+            }
+            if(onep!=0 && twop!=0){
+                int dis = Math.abs(twop-onep);
+                minDis = Math.min(dis,minDis);
+            }
+        }
+        return minDis;
+    }
+	public static void main(String[] args) {
+		int A[] = { 0, 0, 1, 0, 0, 2, 0, 2 };
+	    int B[] = { 1, 0, 0, 0, 2, 2, 2 };
+	    int C[] = { 2, 0, 0, 0, 2, 2, 1, 0 };
+		int ans = enimyDistance(A);
+		System.out.println(ans);
+		ans = enimyDistance(B);
+		System.out.println(ans);
+		ans = enimyDistance(C);
+		System.out.println(ans);
+ 	}
+}
